@@ -44,7 +44,7 @@ class StringServer {
 }
 ```
 **Image 1:**
-![Image](firstMessage)
+![Image](firstMessage.jpg)
 **1**
 
 **2**
@@ -52,7 +52,7 @@ class StringServer {
 **3**
 
 **Image 2:**
-![Image](secondImage)
+![Image](secondImage.jpg)
 **1**
 
 **2**
