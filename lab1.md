@@ -51,15 +51,16 @@ string values from the arrayList to display on the server.
 
 **2.** The relevant field to the class is the url, we must first take a url to break down. For the path, we needed to have a path to first extract from and for this if condition to fall thru this path must have the string "add-message". For the next method, we need to make sure that there exist a regex of "=", this is the delimeter for isolating the string value we need. In the strings add method, we must have a argument of a string to add to the arrayList. This is done by adding the 1st value of the string parameter. After all values are added within our arrayList, we simply use the forloop and .get method to iterate through our arrayList and return each element within it.
 
-**3.**
+**3.** I dont't think any value is changed since we are not changing values just simply extracting certain values to display within our server. Although much of the code we are isolating certain things within the url, the url still remains intact as the server url is the same even after running our code. Since this is the first time doing the add-message, the url remains intact and the string value is the exact string after the = sign.
 
 **Image 2:**
 ![Image](secondImage.jpg)
-**1.**
+**1.** Similar to the first image, the server must be started by class StringServer or none of this would be displayed. The class PublicStringHandleRequest also calls upon the same methods. It is isolating the url by its path, then spliting by the regex, the string value after the delimeter which is the equal sign is then added to the arrayList. A for loop is ran that will get the elements within this arrayList, which now stores the previous string as well as the current string.
 
-**2.**
+**2.** Similar to the first image, the url is the relevant field for the class since thats where add-messages, delimeter as well as the string we hope to display is located. The get path method requires a path in this case the relevant string that .equals hopes to find is add-messages, the getQuery method requires a valid query. Split method requires the query to contain the regex "=". Everything remains the same for image 2 as image 1 as they both call upon similar methods as both must isolate for the string that needs to be displayed within the server.
 
-**3.**
+**3.** I think the value is changed here. The url must be changed to add this new string. The server changes from http://localhost:1000/add-message?s=Hello to 
+http://localhost:1000/add-message?s=HelloWorld. Only the value after the delimeter must be changed in this situation. The value Hello must be changed to HelloWorld in this situation to generate the above image. 
 
 ### Part 2
 ### Part 3
