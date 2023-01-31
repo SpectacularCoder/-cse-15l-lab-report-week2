@@ -43,6 +43,21 @@ class StringServer {
 }
 }
 ```
+**Image 1:**
+![Image](firstMessage)
+**1**
+
+**2**
+
+**3**
+
+**Image 2:**
+![Image](secondImage)
+**1**
+
+**2**
+
+**3**
 
 ### Part 2
 ### Part 3
