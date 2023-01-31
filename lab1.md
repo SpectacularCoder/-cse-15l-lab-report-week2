@@ -63,6 +63,50 @@ string values from the arrayList to display on the server.
 http://localhost:1000/add-message?s=HelloWorld. Only the value after the delimeter must be changed in this situation. The value Hello must be changed to HelloWorld in this situation to generate the above image. 
 
 ### Part 2
+For this part I will use ***A failure-inducing input for the buggy program, as a JUnit test and any associated code***
+
+**Here is the code for the associated test:**
+This code hopes to change the input in reverse order
+```
+# code block
+  static void reverseInPlace(int[] arr) {
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = arr[arr.length - i - 1];
+    }
+  }
+```
+
+**Here is the test associated with the failure inducing input:**
+This code tests to see if the input is actually reversed
+```
+# code block
+	public void testReverseInPlace() {
+    int[] input1 = { 3 , 2 };
+    ArrayExamples.reverseInPlace(input1);
+    assertArrayEquals(new int[]{ 2, 3 }, input1);
+	}
+```
+**Failure Inducing Test:** Using a array containing greater than 1 element, specific example {3,2}
+
+**Bug:** Code iterates through the array, given the test array it has a length of 2. The for loop thus runs through and increments i to the length of the array. arr[0] = arr[2 - 0 - 1], which is arr[0] = arr[1]. Which means, arr[0]= 2. The next iteration goes to arr[1] = arr[2 - 1 - 1] arr[1] = arr[0]. It access the edited array of [2,2], given that the first element is now 2, the final out is [2,2,].
+
+**Symptom:**  The expected output is {2,3} but the actual output is {2,2}
+
+Now to fix this issue, 
+
+```
+# code block
+  static void reverseInPlace(int[] arr) {
+    for(int i = 0; i < arr.length -1; i += 1) {
+      int temp = arr[i];
+      arr[i] = arr[arr.length - i - 1];
+      arr[arr.length - i - 1] = temp;
+    }
+  }
+```
+
+The code still uses a for loop, however arr.length is subtracted by 1. We should not iterate through the entire arrayList as say a length of 2 means there are two elements with indexes between 0 and 1. If we iterate it to 2 it would cause an issue because there is no index of 2 within a array of length 2. The next thing is creating a temporary holder variable to hold the int values. It will hold the values of each index of the array. The value of arr[i] would then equal the the size of arr.length-i-1. So the first stored value of arr[i] = arr[0] and the next stored value would be arr[1]. These values are then reversely stored into temp allowing the new array to be in the order of arr[1],arr[0]. Completeing the reversal.
+
 ### Part 3
 Something I learned in Week 3 was how to essentially check the entirety of the actual output. 
 
